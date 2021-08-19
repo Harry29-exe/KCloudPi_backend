@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class CloudPiBackendApplication
 
 fun main(args: Array<String>) {
-	runApplication<CloudPiBackendApplication>(*args)
+    runApplication<CloudPiBackendApplication>(*args)
 }
