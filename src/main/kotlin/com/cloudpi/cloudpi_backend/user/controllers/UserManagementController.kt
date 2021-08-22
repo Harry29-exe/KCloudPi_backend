@@ -1,9 +1,9 @@
 package com.cloudpi.cloudpi_backend.user.controllers
 
-import com.cloudpi.cloudpi_backend.security.AccountType
-import com.cloudpi.cloudpi_backend.user.dto.UserDto
-import com.cloudpi.cloudpi_backend.user.entities.UserEntity
-import com.cloudpi.cloudpi_backend.user.repositories.UserRepository
+import com.cloudpi.cloudpi_backend.user.requests.GetUsersResponse
+import com.cloudpi.cloudpi_backend.user.services.UserRepoService
+import org.modelmapper.ModelMapper
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -11,28 +11,28 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/user-management")
-class UserManagementController(val userRepository: UserRepository) {
+class UserManagementController(
+    private val userService: UserRepoService,
+    private val modelMapper: ModelMapper,
+    @Value("cloud.pi.config.modifications-only-from-local-network")
+    managementFromLocalNetworkOnly: String
+) {
+
+    val managementFromLocalNetworkOnly: Boolean
+
+    init {
+        println(managementFromLocalNetworkOnly)
+        this.managementFromLocalNetworkOnly = managementFromLocalNetworkOnly == "true"
+    }
 
     @GetMapping("")
-    fun getUsers(): List<UserDto> {
-        val userEntities = userRepository.findAll()
-        val users = ArrayList<UserDto>(userEntities.size)
-        userEntities.forEach { u ->
-            users.add(UserDto(u.username))
-        }
-
-        return users
+    fun getAllUsers(): List<GetUsersResponse> {
+        TODO()
     }
 
     @PostMapping("")
-    fun saveUser() {
-        userRepository.save(UserEntity(0, "we", "we", false, ArrayList(), AccountType.USER, ""))
-
-    }
-
-    @GetMapping("/1")
-    fun test(): String {
-        return "we2"
+    fun createNewUser() {
+        TODO()
     }
 
 }

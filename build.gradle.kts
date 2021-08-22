@@ -26,6 +26,10 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.postgresql/postgresql
 	implementation("org.postgresql:postgresql:42.2.23")
 
+// https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+	implementation("org.modelmapper:modelmapper:2.4.4")
+// https://mvnrepository.com/artifact/org.mockito/mockito-all
+//	testImplementation("org.mockito:mockito-all:1.10.19")
 
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-security")
