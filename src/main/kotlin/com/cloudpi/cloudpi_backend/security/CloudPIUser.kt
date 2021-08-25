@@ -46,7 +46,7 @@ class CloudPIUser(
     }
 
     override fun isAccountNonLocked(): Boolean {
-        return locked
+        return !locked
     }
 
     override fun isCredentialsNonExpired(): Boolean {
