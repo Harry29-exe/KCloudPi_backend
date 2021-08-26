@@ -20,7 +20,7 @@ class UserEntity(
     var locked: Boolean,
     val accountType: AccountType,
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true)
-    var permissions: MutableList<UserPermissionEntity>?,
+    var permissions: MutableList<UserPermissionEntity>,
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
     var files_info: MutableList<FileEntity>?,
