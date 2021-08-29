@@ -11,5 +11,6 @@ data class DirectoryDto(
     var lastModified: Date,
     var lastRead: Date,
     var childrenSize: Long,
-    val children: List<FileDto>
+    val childrenFiles: MutableList<FileDto>,
+    val childrenDirectories: MutableList<DirectoryDto>
 )

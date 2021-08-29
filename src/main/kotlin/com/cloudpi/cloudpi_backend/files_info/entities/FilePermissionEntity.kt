@@ -15,6 +15,6 @@ class FilePermissionEntity (
     @JoinColumn(name = "user_id")
     val user: UserEntity,
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "file_id")
-    val file: FileEntity
+    @JoinColumn(name = "fs_id")
+    val file: FilesystemIdEntity
 )

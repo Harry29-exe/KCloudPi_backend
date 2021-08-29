@@ -1,6 +1,6 @@
 package com.cloudpi.cloudpi_backend.user.entities
 
-import com.cloudpi.cloudpi_backend.files_info.entities.FileEntity
+import com.cloudpi.cloudpi_backend.files_info.entities.FilesystemObjectEntity
 import com.cloudpi.cloudpi_backend.files_info.entities.FilePermissionEntity
 import com.cloudpi.cloudpi_backend.security.AccountType
 import org.hibernate.Hibernate
@@ -23,9 +23,9 @@ class UserEntity(
     var permissions: MutableList<UserPermissionEntity>,
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
-    var files_info: MutableList<FileEntity>?,
+    var files_info: MutableList<FilesystemObjectEntity>?,
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true)
-    var filesPermissions: FilePermissionEntity
+    var filesPermissions: MutableList<FilePermissionEntity>
 
 ) {
 

@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension
 import org.modelmapper.ModelMapper
 import org.springframework.test.util.ReflectionTestUtils
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 @ExtendWith(MockitoExtension::class)
@@ -38,7 +39,7 @@ class UserManagementControllerTest {
     fun createNewUser() {
         //given
         setModificationsOnlyFromLocalNetwork(false)
-        val userDto = UserDto(1L, "root", "root", "password", false, AccountType.ROOT)
+        val userDto = UserDto(1L, "root", "root@root", "root", "password", false, AccountType.ROOT, ArrayList())
         doReturn(Optional.of(userDto)).`when`(userService).getUser("")
         //when
 //        userController.createNewUser()
